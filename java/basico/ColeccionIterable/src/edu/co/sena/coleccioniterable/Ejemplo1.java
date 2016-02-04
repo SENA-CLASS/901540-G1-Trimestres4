@@ -8,6 +8,7 @@ package edu.co.sena.coleccioniterable;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.function.Consumer;
 
 /**
  *
@@ -30,45 +31,61 @@ public class Ejemplo1 {
         }
         System.out.println("---------------------");
         System.out.println("usndo el patron iterator");
-        
+
         System.out.println("imrpesion con el lambda expresion");
         Iterator i = lista.iterator();
         i.forEachRemaining(t -> System.out.println(t));
-        
-        
+
         System.out.println("impresion con el while");
         Iterator i2 = lista.iterator();
-        
-        while(i2.hasNext()){
+
+        while (i2.hasNext()) {
             System.out.println(i2.next());
-        
+
         }
-        
+
         //el siguiente while ya no funciona por el que el objeto iterator se encuentra en la ultia posicion
-        while(i.hasNext()){
+        while (i.hasNext()) {
             System.out.println(i.next());
-        
+
         }
-        
+
         List<Persona> listaPersonas = new ArrayList<>();
         listaPersonas.add(new Persona("juan"));
         listaPersonas.add(new Persona("pedro"));
         listaPersonas.add(new Persona("felipe"));
-        
+
+        System.out.println("con el iterator clasico");
         //iterator clasico
         Iterator i3 = listaPersonas.iterator();
         while (i3.hasNext()) {
-            Persona next = (Persona)i3.next();
+            Persona next = (Persona) i3.next();
             System.out.println(next.getNombre());
-            
+
         }
+        System.out.println("con el foreach");
         //foreach
         for (Persona listaPersona : listaPersonas) {
             System.out.println(listaPersona.getNombre());
         }
         //lambda expresion
+        System.out.println("con lamnda expresion");
         Iterator i4 = listaPersonas.iterator();
-        i4.forEachRemaining(t -> System.out.println(t));
+        i4.forEachRemaining((t -> {
+            Persona pt = (Persona) t;
+            System.out.println(pt.getNombre());
+        }));
+        
+        //con clase anonima 
+        System.out.println("con clase anonima");
+        Iterator i5 = listaPersonas.iterator();
+        i5.forEachRemaining((new Consumer() {
+            @Override
+            public void accept(Object t) {
+                Persona pt = (Persona) t;
+                System.out.println(pt.getNombre());
+            }
+        }));
         
     }
     
