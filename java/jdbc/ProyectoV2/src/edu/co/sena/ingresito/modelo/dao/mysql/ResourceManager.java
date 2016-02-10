@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package edu.co.sena.ingresito.dao.mysql;
+package edu.co.sena.ingresito.modelo.dao.mysql;
 
 import java.sql.Connection;
 import java.sql.Driver;
@@ -23,7 +23,7 @@ public class ResourceManager {
     private static String JDBC_USER = "root";
     private static String JDBC_PASSWORD = "123456789";
 
-    public static Connection getConection() {
+    public static synchronized Connection getConection() {
         Connection conexion = null;
         try {
             conexion = DriverManager.getConnection(JDBC_URL, JDBC_USER, JDBC_PASSWORD);

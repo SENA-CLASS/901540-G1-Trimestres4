@@ -5,6 +5,7 @@
  */
 package edu.co.sena.ingresito.dao.mysql;
 
+import edu.co.sena.ingresito.modelo.dao.mysql.ResourceManager;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

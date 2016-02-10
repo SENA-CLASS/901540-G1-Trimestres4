@@ -36,7 +36,7 @@ calls to this DAO, otherwise a new Connection will be allocated for each operati
 	/** 
 	 * All finder methods in this class use this SELECT constant to build their queries
 	 */
-	protected final String SQL_SELECT = "SELECT ID_CATALOGO, NOMBRE_CATALOGO, DESCRIPCION FROM " + getTableName() + "";
+            protected final String SQL_SELECT = "SELECT ID_CATALOGO, NOMBRE_CATALOGO, DESCRIPCION FROM " + getTableName() + "";
 
 	/** 
 	 * Finder methods will pass this value to the JDBC setMaxRows method
