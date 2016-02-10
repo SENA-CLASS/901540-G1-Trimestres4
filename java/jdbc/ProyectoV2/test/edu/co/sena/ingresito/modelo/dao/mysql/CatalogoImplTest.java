@@ -5,7 +5,9 @@
  */
 package edu.co.sena.ingresito.modelo.dao.mysql;
 
+import edu.co.sena.ingresito.modelo.dao.CatalogoDAO;
 import edu.co.sena.ingresito.modelo.dto.Catalogo;
+import edu.co.sena.ingresito.modelo.dto.CatalogoPk;
 import java.util.List;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -40,30 +42,51 @@ public class CatalogoImplTest {
     }
 
     /**
-     * Test of findAll method, of class CatalogoImpl.
+     * Test of findAll method, of class CatalogoDAOImpl.
      */
     @Test
     public void testFindAll() {
         System.out.println("findAll");
-        CatalogoImpl instance = new CatalogoImpl();
+        CatalogoDAO instance = new CatalogoDAOImpl();
         List<Catalogo> result = instance.findAll();
         for (Catalogo catalogo : result) {
             System.out.println(catalogo.toString());
         }
     }
-
-    /**
-     * Test of getTableName method, of class CatalogoImpl.
-     */
     @Test
-    public void testGetTableName() {
-        System.out.println("getTableName");
-        CatalogoImpl instance = new CatalogoImpl();
-        String expResult = "";
-        String result = instance.getTableName();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+    public void testInsert() {
+        System.out.println("insertar catalogo");
+        Catalogo ct = new Catalogo();
+        ct.setIdCatalogo(14);
+        ct.setNombreCatalogo("nononon");
+        ct.setDescripcion("asdfasdfasd");
+        CatalogoDAO instance = new CatalogoDAOImpl();
+        instance.insert(ct);
     }
+    @Test
+    public void testUpdate() {
+        System.out.println("update catalogo");
+        CatalogoPk llave = new CatalogoPk(1);
+        Catalogo nuevoCatalogo = new Catalogo();
+        nuevoCatalogo.setIdCatalogo(15);
+        nuevoCatalogo.setNombreCatalogo("nononon");
+        nuevoCatalogo.setDescripcion("asdfasdfasd");
+        CatalogoDAO instance = new CatalogoDAOImpl();
+        instance.update(llave, nuevoCatalogo);
+    }
+
+    @Test
+    public void testUpdatePk() {
+        System.out.println("update catalogo");
+        CatalogoPk llaveVieja = new CatalogoPk(1);
+        CatalogoPk llaveNueva = new CatalogoPk(100);
+        
+        CatalogoDAO instance = new CatalogoDAOImpl();
+        instance.updatePk(llaveVieja, llaveNueva);
+    }
+
+
+    
+   
     
 }
