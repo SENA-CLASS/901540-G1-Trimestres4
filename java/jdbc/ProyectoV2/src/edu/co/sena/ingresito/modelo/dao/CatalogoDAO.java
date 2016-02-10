@@ -18,4 +18,7 @@ public interface CatalogoDAO {
     public void insert(Catalogo dto);
       public void update(CatalogoPk llaveDto, Catalogo dto);
       public void updatePk(CatalogoPk viejo, CatalogoPk nuevo);
+      public void delete(CatalogoPk dot);
+      public List<Catalogo> findByPK(CatalogoPk dto);
+      public int count();
 }
