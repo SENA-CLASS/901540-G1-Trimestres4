@@ -40,6 +40,10 @@ public class CatalogoDAOImpl implements CatalogoDAO {
             + "SET\n"
             + "ID_CATALOGO = ?\n"
             + "WHERE ID_CATALOGO = ?;";
+    private final String SQL_UPD = "UPDATE "+ getTableName()+"\n"
+            + "SET\n"
+            + "ID_CATALOGO = ?\n"
+            + "WHERE ID_CATALOGO = ?;";
 
     public List<Catalogo> findAll() {
         // declaracion de variables
