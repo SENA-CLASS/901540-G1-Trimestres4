@@ -40,10 +40,7 @@ public class CatalogoDAOImpl implements CatalogoDAO {
             + "SET\n"
             + "ID_CATALOGO = ?\n"
             + "WHERE ID_CATALOGO = ?;";
-    private final String SQL_UPD = "UPDATE "+ getTableName()+"\n"
-            + "SET\n"
-            + "ID_CATALOGO = ?\n"
-            + "WHERE ID_CATALOGO = ?;";
+    
 
     public List<Catalogo> findAll() {
         // declaracion de variables
@@ -207,6 +204,21 @@ public class CatalogoDAOImpl implements CatalogoDAO {
 
     public String getTableName() {
         return "tienda_online2.catalogo";
+    }
+
+    @Override
+    public void delete(CatalogoPk dot) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public List<Catalogo> findByPK(CatalogoPk dto) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public int count() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 }

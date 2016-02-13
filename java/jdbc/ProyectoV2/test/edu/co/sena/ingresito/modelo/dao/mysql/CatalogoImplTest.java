@@ -8,6 +8,10 @@ package edu.co.sena.ingresito.modelo.dao.mysql;
 import edu.co.sena.ingresito.modelo.dao.CatalogoDAO;
 import edu.co.sena.ingresito.modelo.dto.Catalogo;
 import edu.co.sena.ingresito.modelo.dto.CatalogoPk;
+import edu.co.sena.ingresito.modelo.factory.DAOAbstractFactory;
+import edu.co.sena.ingresito.modelo.factory.DAOFactory;
+
+import edu.co.sena.ingresito.modelo.factory.MysqlDAOFactory;
 import java.util.List;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -47,7 +51,8 @@ public class CatalogoImplTest {
     @Test
     public void testFindAll() {
         System.out.println("findAll");
-        CatalogoDAO instance = new CatalogoDAOImpl();
+        DAOFactory fdao = MysqlDAOFactory.getDAOFactory(DAOAbstractFactory.MYSQL_FACTORY);
+        CatalogoDAO instance = fdao.createCatalogoDAO();
         List<Catalogo> result = instance.findAll();
         for (Catalogo catalogo : result) {
             System.out.println(catalogo.toString());
@@ -60,7 +65,8 @@ public class CatalogoImplTest {
         ct.setIdCatalogo(14);
         ct.setNombreCatalogo("nononon");
         ct.setDescripcion("asdfasdfasd");
-        CatalogoDAO instance = new CatalogoDAOImpl();
+        DAOFactory fdao = MysqlDAOFactory.getDAOFactory(DAOAbstractFactory.MYSQL_FACTORY);
+        CatalogoDAO instance = fdao.createCatalogoDAO();
         instance.insert(ct);
     }
     @Test
@@ -71,7 +77,9 @@ public class CatalogoImplTest {
         nuevoCatalogo.setIdCatalogo(15);
         nuevoCatalogo.setNombreCatalogo("nononon");
         nuevoCatalogo.setDescripcion("asdfasdfasd");
-        CatalogoDAO instance = new CatalogoDAOImpl();
+        
+        DAOFactory fdao = MysqlDAOFactory.getDAOFactory(DAOAbstractFactory.MYSQL_FACTORY);
+        CatalogoDAO instance = fdao.createCatalogoDAO();
         instance.update(llave, nuevoCatalogo);
     }
 
