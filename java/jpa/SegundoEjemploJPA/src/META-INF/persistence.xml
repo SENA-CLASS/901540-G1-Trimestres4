@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+  <persistence-unit name="SegundoEjemploJPAPU" transaction-type="RESOURCE_LOCAL">
+    <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+    <class>edu.co.sena.tiendaenlinea.integracion.entities.Pago</class>
+    <class>edu.co.sena.tiendaenlinea.integracion.entities.Proveedor</class>
+    <class>edu.co.sena.tiendaenlinea.integracion.entities.Usuario</class>
+    <class>edu.co.sena.tiendaenlinea.integracion.entities.Pedido</class>
+    <class>edu.co.sena.tiendaenlinea.integracion.entities.Producto</class>
+    <class>edu.co.sena.tiendaenlinea.integracion.entities.ItemCarrito</class>
+    <class>edu.co.sena.tiendaenlinea.integracion.entities.InventarioCompras</class>
+    <class>edu.co.sena.tiendaenlinea.integracion.entities.Catalogo</class>
+    <class>edu.co.sena.tiendaenlinea.integracion.entities.Cuenta</class>
+    <class>edu.co.sena.tiendaenlinea.integracion.entities.DomicilioProvee</class>
+    <class>edu.co.sena.tiendaenlinea.integracion.entities.Municipio</class>
+    <class>edu.co.sena.tiendaenlinea.integracion.entities.CarritoCompras</class>
+    <class>edu.co.sena.tiendaenlinea.integracion.entities.Factura</class>
+    <class>edu.co.sena.tiendaenlinea.integracion.entities.DomicilioCuentas</class>
+    <class>edu.co.sena.tiendaenlinea.integracion.entities.Categoria</class>
+    <class>edu.co.sena.tiendaenlinea.integracion.entities.Departamento</class>
+    <class>edu.co.sena.tiendaenlinea.integracion.entities.Item</class>
+    <class>edu.co.sena.tiendaenlinea.integracion.entities.TipoDocumento</class>
+    <properties>
+      <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/tienda_online2?zeroDateTimeBehavior=convertToNull"/>
+      <property name="javax.persistence.jdbc.user" value="root"/>
+      <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
+      <property name="javax.persistence.jdbc.password" value="123456789"/>
+    </properties>
+  </persistence-unit>
+</persistence>
