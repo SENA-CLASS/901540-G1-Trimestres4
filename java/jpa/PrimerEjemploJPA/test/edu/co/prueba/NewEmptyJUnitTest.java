@@ -6,6 +6,7 @@
 package edu.co.prueba;
 
 import edu.co.sena.integracion.entiies.Perro;
+import edu.co.sena.integracion.entiies.PerroPK;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -68,8 +69,8 @@ public class NewEmptyJUnitTest {
     public void insertar() {
         
         Perro p1 = new Perro();
-        p1.setIdPerro("1");
-        p1.setNombre("pili");
+        p1.setPerroPk(new PerroPK("1", "pili"));
+       
         p1.setRaza("dobermang");
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("PruebaJPAPU");
         EntityManager em = emf.createEntityManager();
@@ -80,91 +81,6 @@ public class NewEmptyJUnitTest {
         emf.close();
      
     }
-    @Test
-    public void find() {
-        
-        
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("PruebaJPAPU");
-        EntityManager em = emf.createEntityManager();
-        Perro pt = em.find(Perro.class, "1");
-        em.close();
-        emf.close();
-        
-        System.out.println(pt.toString());
-        
-    }
-    @Test
-    public void remove() {
-        
-        
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("PruebaJPAPU");
-        EntityManager em = emf.createEntityManager();
-        em.getTransaction().begin();
-        Perro pt2 = em.find(Perro.class, "1");
-       
-        em.remove(pt2);
-        em.getTransaction().commit();
-        em.close();
-        emf.close();
-        
-        
-        
-    }
-    @Test
-    public void update() {
-        
-        
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("PruebaJPAPU");
-        EntityManager em = emf.createEntityManager();
-        em.getTransaction().begin();
-        Perro pt2 = em.find(Perro.class, "1");
-        pt2.setNombre("g");
-        em.merge(pt2); //se puede usar tambien el merge
-        em.getTransaction().commit();
-        em.close();
-        emf.close();
-        
-        
-        
-    }
-    @Test
-    public void queryJPQLTypeQuery() {
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("PruebaJPAPU");
-        EntityManager em = emf.createEntityManager();
-        em.getTransaction().begin();
-        TypedQuery<Perro> query = em.createQuery("SELECT u FROM Perro u", Perro.class);
-        List<Perro> lista = query.getResultList();
-        
-        em.getTransaction().commit();
-        em.close();
-        emf.close();
-        
-        for (Perro perro : lista) {
-            System.out.println(perro.toString());
-        }
-        
-        
-        
-    }
-    @Test
-    public void queryJPQLQuery() {
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("PruebaJPAPU");
-        EntityManager em = emf.createEntityManager();
-        em.getTransaction().begin();
-        Query query = em.createQuery("SELECT u FROM Perro u");
-        List<Perro> lista = query.getResultList();
-        
-        em.getTransaction().commit();
-        em.close();
-        emf.close();
-        
-        for (Perro perro : lista) {
-            System.out.println(perro.toString());
-        }
-        
-        
-        
-    }
-    
+   
     
 }

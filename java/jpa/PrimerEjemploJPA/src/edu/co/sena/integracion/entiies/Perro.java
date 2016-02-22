@@ -5,33 +5,37 @@
  */
 package edu.co.sena.integracion.entiies;
 
+import java.io.Serializable;
+import javax.persistence.Column;
+import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
  * @author hernando
  */
 @Entity// el parametro name se coloca para usarlo en el JDNI
-@Table (name = "perrito")
-public class Perro {
-    @Id
-    private String idPerro;
+@XmlRootElement
+public class Perro implements Serializable{
     
+    @EmbeddedId
+    private PerroPK perroPk;
+    @Column(name = "RAZA", length = 40)
     private String raza;
-    
-    private String nombre;
+   
 
-    
-    public String getIdPerro() {
-        return idPerro;
+    @Override
+    public String toString() {
+        return "Perro{" + "perroPk=" + perroPk + ", raza=" + raza + '}';
     }
 
-    public void setIdPerro(String idPerro) {
-        this.idPerro = idPerro;
-    }
-
+    
+   
     public String getRaza() {
         return raza;
     }
@@ -40,17 +44,14 @@ public class Perro {
         this.raza = raza;
     }
 
-    public String getNombre() {
-        return nombre;
+
+    public PerroPK getPerroPk() {
+        return perroPk;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setPerroPk(PerroPK perroPk) {
+        this.perroPk = perroPk;
     }
 
-    @Override
-    public String toString() {
-        return "Perro{" + "idPerro=" + idPerro + ", raza=" + raza + ", nombre=" + nombre + '}';
-    }
     
 }

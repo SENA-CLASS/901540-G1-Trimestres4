@@ -7,8 +7,8 @@
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/pruebajpa?zeroDateTimeBehavior=convertToNull"/>
       <property name="javax.persistence.jdbc.user" value="root"/>
       <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
-      <property name="javax.persistence.jdbc.password" value="123456789"></property>
-      <property name="eclipselink.ddl-generation" value="create-or-extend-tables"/>
+      <property name="javax.persistence.jdbc.password" value="123456789"/>
+      <property name="eclipselink.ddl-generation" value="drop-and-create-tables"/>
       <property name="eclipselink.logging.level.sql" value="FINE"/>
     </properties>
   </persistence-unit>
@@ -20,7 +20,7 @@
       <property name="javax.persistence.jdbc.user" value="root"/>
       <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
       <property name="javax.persistence.jdbc.password" value="123456789"/>
-      <property name="javax.persistence.schema-generation.database.action" value="drop-and-create"/>
+      <property name="eclipselink.ddl-generation" value="drop-and-create-tables"/>
     </properties>
   </persistence-unit>
 </persistence>
