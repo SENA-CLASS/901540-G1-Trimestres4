@@ -45,7 +45,7 @@ public class Casa implements Serializable {
     //@Size(max = 45) //no esta funcionando con el eclipselink ni con jpa
     @Column(name = "direccion_casa", length = 45)
     private String direccionCasa;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "casaidCasa", fetch = FetchType.LAZY)
+    @OneToMany(cascade = {CascadeType.REMOVE, CascadeType.PERSIST}, mappedBy = "casaidCasa", fetch = FetchType.LAZY)
     private Collection<Habitante> habitanteCollection;
 
     public Casa() {
