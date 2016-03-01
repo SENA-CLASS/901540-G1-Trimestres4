@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+  <persistence-unit name="IngresoCEETPU" transaction-type="RESOURCE_LOCAL">
+    <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+    <class>edu.co.sena.ingresoceet.interacion.entities.Registro</class>
+    <class>edu.co.sena.ingresoceet.interacion.entities.Cuenta</class>
+    <class>edu.co.sena.ingresoceet.interacion.entities.TipoDocumento</class>
+    <class>edu.co.sena.ingresoceet.interacion.entities.Usuario</class>
+    <class>edu.co.sena.ingresoceet.interacion.entities.Equipo</class>
+    <class>edu.co.sena.ingresoceet.interacion.entities.Cargo</class>
+    <class>edu.co.sena.ingresoceet.interacion.entities.Propietario</class>
+    <properties>
+      <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/ceetregistro?zeroDateTimeBehavior=convertToNull"/>
+      <property name="javax.persistence.jdbc.user" value="root"/>
+      <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
+      <property name="javax.persistence.jdbc.password" value="123456789"/>
+      <property name="eclipselink.logging.level.sql" value="FINE"/>
+      <property name="eclipselink.ddl-generation" value="none"/>
+      <property name="eclipselink.weaving.changetracking" value="true"/>
+<property name="eclipselink.weaving.lazy" value="true"/>
+<property name="eclipselink.weaving.eager" value="true"/>
+<property name="eclipselink.weaving.fetchgroups" value="true"/>
+<property name="eclipselink.weaving.internal" value="false"/>
+<property name="eclipselink.weaving" value="false"/>
+     
+    </properties>
+  </persistence-unit>
+</persistence>
