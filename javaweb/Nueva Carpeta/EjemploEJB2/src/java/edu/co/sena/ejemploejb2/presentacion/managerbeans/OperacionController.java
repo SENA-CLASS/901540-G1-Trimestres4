@@ -9,6 +9,8 @@ import javax.ejb.EJB;
 import javax.inject.Named;
 import javax.enterprise.context.RequestScoped;
 import edu.co.sena.ejemploejb2.negocio.ejbs.OperacionFacadeLocal;
+import java.util.ResourceBundle;
+import javax.annotation.Resource;
 
 /**
  *
@@ -25,6 +27,7 @@ public class OperacionController {
     private String numero2;
     
     private Double resultadoNumerico;
+    private String mensajeResultado;
 
     /**
      * Creates a new instance of OperacionController
@@ -33,6 +36,7 @@ public class OperacionController {
     }
 
     public void operarSuma(){
+        this.mensajeResultado = ResourceBundle.getBundle("/BundleOperacion").getString("MensajeSuma");
         this.resultadoNumerico =  operacionEJB.suma(Double.parseDouble(numero1), Double.parseDouble(numero2));
             
     }
@@ -59,6 +63,14 @@ public class OperacionController {
 
     public void setResultadoNumerico(Double resultadoNumerico) {
         this.resultadoNumerico = resultadoNumerico;
+    }
+
+    public String getMensajeResultado() {
+        return mensajeResultado;
+    }
+
+    public void setMensajeResultado(String mensajeResultado) {
+        this.mensajeResultado = mensajeResultado;
     }
     
 }

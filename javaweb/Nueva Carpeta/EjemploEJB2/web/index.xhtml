@@ -17,7 +17,7 @@
                 </p:panelGrid>
             <p:commandButton action="#{operacionController.operarSuma}" value="#{bundleOperacion.suma}" update="formulario"/>
             <p:panelGrid columns="2" rendered="#{operacionController.resultadoNumerico != null}">
-                <h:outputLabel value="#{bundleOperacion.MensajeResultado}"/>
+                <h:outputLabel value="#{operacionController.mensajeResultado}"/>
                 <h:outputLabel value="#{operacionController.resultadoNumerico}"/>
             </p:panelGrid>
         </h:form>
