@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="CargoCreateDlg" widgetVar="CargoCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundleCargo.CreateCargoTitle}">
+            <h:form id="CargoCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{cargoController.selected != null}">
+                        <p:outputLabel value="#{bundleCargo.CreateCargoLabel_idCargo}" for="idCargo" />
+                        <p:inputText id="idCargo" value="#{cargoController.selected.idCargo}" title="#{bundleCargo.CreateCargoTitle_idCargo}" required="true" requiredMessage="#{bundleCargo.CreateCargoRequiredMessage_idCargo}"/>
+                        <p:outputLabel value="#{bundleCargo.CreateCargoLabel_descripcionCargo}" for="descripcionCargo" />
+                        <p:inputText id="descripcionCargo" value="#{cargoController.selected.descripcionCargo}" title="#{bundleCargo.CreateCargoTitle_descripcionCargo}" />
+                        <p:outputLabel value="#{bundleCargo.CreateCargoLabel_estado}" for="estado" />
+                        <p:inputText id="estado" value="#{cargoController.selected.estado}" title="#{bundleCargo.CreateCargoTitle_estado}" />
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{cargoController.create}" value="#{bundleCargo.Save}" update="display,:CargoListForm:datalist,:growl" oncomplete="handleSubmit(args,'CargoCreateDialog');"/>
+                    <p:commandButton value="#{bundleCargo.Cancel}" onclick="CargoCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        Hello from Facelets
+
+        <br />
+        <h:link outcome="welcomePrimefaces" value="Primefaces welcome page" />
+        
+        <h:form >
+            <h:outputLabel value="primero"></h:outputLabel>
+            <h:inputText value="#{newJSFManagedBean.a}"></h:inputText>
+            <h:outputLabel value="segundo"></h:outputLabel>
+            <h:inputText value="#{newJSFManagedBean.b}"></h:inputText>
+            <h:commandButton value="Presione aqui" ></h:commandButton>
+        </h:form>
+        <h:outputText value="#{newJSFManagedBean.a}"></h:outputText>
+        <h:outputText value=" #{newJSFManagedBean.b}"></h:outputText>       
+        <h:form >
+            <h:outputLabel value="primero"></h:outputLabel>
+            <h:inputText value="#{newJSFManagedBean1.a}"></h:inputText>
+            <h:outputLabel value="segundo"></h:outputLabel>
+            <h:inputText value="#{newJSFManagedBean1.b}"></h:inputText>
+            <h:commandButton value="Presione aqui"></h:commandButton>
+        </h:form>
+        <h:outputText value="#{newJSFManagedBean1.a}"></h:outputText>
+        <h:outputText value=" #{newJSFManagedBean1.b}"></h:outputText>       
+    </h:body>
+</html>
+

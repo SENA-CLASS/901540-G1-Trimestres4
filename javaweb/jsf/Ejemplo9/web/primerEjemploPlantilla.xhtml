@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template="./newTemplate.xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:p="http://primefaces.org/ui">
+
+    <ui:define name="top">
+        sdfasdfasfd
+    </ui:define>
+
+    <ui:define name="left">
+        left
+    </ui:define>
+
+    <ui:define name="right">
+        right
+    </ui:define>
+
+    <ui:define name="content">
+
+        <h:form >
+            <h:panelGroup id="display">
+                <p:panelGrid columns="2" >
+                    <h:outputLabel value="#{ejemploBundle.TipoDocumentoLabel}"/> 
+                    <h:inputText value="#{pesronaManagedBean.tipoDocumento}"/>
+
+                    <h:outputLabel value="#{ejemploBundle.NumeroDeDocumentoLabel}"/>
+                    <h:inputText value="#{pesronaManagedBean.numeroDocuemtno}"/>
+
+                    <h:outputLabel value="PN"/>
+                    <h:inputText value="#{pesronaManagedBean.primerNombre}"/>
+
+                    <h:outputLabel value="SN"/>
+                    <h:inputText value="#{pesronaManagedBean.segundoNombre}"/>
+
+                    <h:outputLabel value="PA"/>
+                    <h:inputText value="#{pesronaManagedBean.primerApellido}"></h:inputText><br />
+
+                    <h:outputLabel value="SA"></h:outputLabel>
+                    <h:inputText value="#{pesronaManagedBean.segundoApellido}"></h:inputText><br />
+                </p:panelGrid>
+                <h:commandButton value="Presione aqui" action="./ejemplo/respuestaejemplo9.xhtml" />
+            </h:panelGroup>
+        </h:form>
+    </ui:define>
+
+    <ui:define name="bottom">
+        bottom
+    </ui:define>
+
+</ui:composition>

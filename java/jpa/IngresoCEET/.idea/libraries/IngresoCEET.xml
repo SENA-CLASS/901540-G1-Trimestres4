@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="IngresoCEET">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/dist/IngresoCEET.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
