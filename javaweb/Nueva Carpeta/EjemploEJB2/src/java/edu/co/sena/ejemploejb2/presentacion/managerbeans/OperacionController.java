@@ -5,8 +5,10 @@
  */
 package edu.co.sena.ejemploejb2.presentacion.managerbeans;
 
+import javax.ejb.EJB;
 import javax.inject.Named;
 import javax.enterprise.context.RequestScoped;
+import edu.co.sena.ejemploejb2.negocio.ejbs.OperacionFacadeLocal;
 
 /**
  *
@@ -16,10 +18,12 @@ import javax.enterprise.context.RequestScoped;
 @RequestScoped
 public class OperacionController {
     
+    @EJB
+    OperacionFacadeLocal operacionEJB;
+    
     private String numero1;
     private String numero2;
-    private String operacion;
-    private String resultado;
+    
     private Double resultadoNumerico;
 
     /**
@@ -29,7 +33,7 @@ public class OperacionController {
     }
 
     public void operarSuma(){
-        this.resultadoNumerico = Double.parseDouble(numero1)+Double.parseDouble(numero2);
+        this.resultadoNumerico =  operacionEJB.suma(Double.parseDouble(numero1), Double.parseDouble(numero2));
             
     }
     
@@ -47,22 +51,6 @@ public class OperacionController {
 
     public void setNumero2(String numero2) {
         this.numero2 = numero2;
-    }
-
-    public String getOperacion() {
-        return operacion;
-    }
-
-    public void setOperacion(String operacion) {
-        this.operacion = operacion;
-    }
-
-    public String getResultado() {
-        return resultado;
-    }
-
-    public void setResultado(String resultado) {
-        this.resultado = resultado;
     }
 
     public Double getResultadoNumerico() {

@@ -12,7 +12,7 @@ import javax.ejb.Stateless;
  * @author hernando
  */
 @Stateless
-public class Operacion implements OperacionLocal {
+public class OperacionFacade implements OperacionFacadeLocal {
 
     
     @Override

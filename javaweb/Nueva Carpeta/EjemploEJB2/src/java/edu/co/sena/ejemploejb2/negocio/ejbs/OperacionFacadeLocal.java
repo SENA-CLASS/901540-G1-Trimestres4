@@ -12,7 +12,7 @@ import javax.ejb.Local;
  * @author hernando
  */
 @Local
-public interface OperacionLocal {
+public interface OperacionFacadeLocal {
 
     double suma(double numero1, double numero2);
     
