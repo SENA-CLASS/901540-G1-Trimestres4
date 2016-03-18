@@ -12,7 +12,7 @@ import javax.ejb.Local;
  * @author hernando
  */
 @Local
-public interface EJBconEstadoLocal {
+public interface EjemploSingletonLocal {
+    public String singleton();
     public String incrementador();
-    
 }

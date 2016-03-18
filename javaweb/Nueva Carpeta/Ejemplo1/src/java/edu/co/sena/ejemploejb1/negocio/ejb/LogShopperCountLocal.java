@@ -6,13 +6,13 @@
 package edu.co.sena.ejemploejb1.negocio.ejb;
 
 import javax.ejb.Local;
+import javax.ejb.Timer;
 
 /**
  *
  * @author hernando
  */
 @Local
-public interface EJBconEstadoLocal {
-    public String incrementador();
-    
+public interface LogShopperCountLocal {
+    public void logShopperCount(Timer timer);
 }

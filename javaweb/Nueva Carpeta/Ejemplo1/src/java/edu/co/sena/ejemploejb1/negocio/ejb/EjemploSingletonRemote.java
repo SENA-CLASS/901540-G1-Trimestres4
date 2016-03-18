@@ -5,14 +5,11 @@
  */
 package edu.co.sena.ejemploejb1.negocio.ejb;
 
-import javax.ejb.Local;
-
 /**
  *
  * @author hernando
  */
-@Local
-public interface EJBconEstadoLocal {
+public interface EjemploSingletonRemote {
+    public String singleton();
     public String incrementador();
-    
 }

@@ -7,6 +7,8 @@ package edu.co.sena.ejemploejb1.negocio.ejb;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
+import javax.ejb.PostActivate;
+import javax.ejb.PrePassivate;
 import javax.ejb.Stateless;
 
 /**
@@ -20,14 +22,23 @@ public class NewSessionBean implements NewSessionBeanLocal, NewInterfaceRemote {
         return "hola mundo";
     }
     @PostConstruct
-    public void hola1() {
+    public void init() {
         System.out.println("postcontruc"); ;
         
     }
     @PreDestroy
-    public void hola2() {
+    public void clean() {
         System.out.println("predestroy");
     }
+    @PrePassivate
+    public void pause(){
+        System.out.println("prepasive");
+    }
+    @PostActivate
+    public void active(){
+        System.out.println("postactive");
+    }
+    
     
     
     
