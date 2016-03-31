@@ -18,6 +18,7 @@ import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
 import javax.faces.convert.FacesConverter;
+import org.primefaces.model.UploadedFile;
 
 @Named("cuentaController")
 @SessionScoped
@@ -27,6 +28,8 @@ public class CuentaController implements Serializable {
     private edu.co.sena.ceetregistro.negocio.ejbs.CuentaFacade ejbFacade;
     private List<Cuenta> items = null;
     private Cuenta selected;
+    
+    private UploadedFile file;
 
     public CuentaController() {
     }
@@ -62,6 +65,7 @@ public class CuentaController implements Serializable {
         if (!JsfUtil.isValidationFailed()) {
             items = null;    // Invalidate list of items to trigger re-query.
         }
+        
     }
 
     public void update() {
@@ -92,6 +96,7 @@ public class CuentaController implements Serializable {
                 } else {
                     getFacade().remove(selected);
                 }
+                selected=null;
                 JsfUtil.addSuccessMessage(successMessage);
             } catch (EJBException ex) {
                 String msg = "";
@@ -121,6 +126,14 @@ public class CuentaController implements Serializable {
 
     public List<Cuenta> getItemsAvailableSelectOne() {
         return getFacade().findAll();
+    }
+
+    public UploadedFile getFile() {
+        return file;
+    }
+
+    public void setFile(UploadedFile file) {
+        this.file = file;
     }
 
     @FacesConverter(forClass = Cuenta.class)

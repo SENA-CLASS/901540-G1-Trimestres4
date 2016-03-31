@@ -23,7 +23,7 @@
                         <p:outputLabel value="#{bundle.CreateCuentaLabel_segundoApellido}" for="segundoApellido" />
                         <p:inputText id="segundoApellido" value="#{cuentaController.selected.segundoApellido}" title="#{bundle.CreateCuentaTitle_segundoApellido}" />
                         <p:outputLabel value="#{bundle.CreateCuentaLabel_foto}" for="foto" />
-                        <p:inputTextarea rows="4" cols="30" id="foto" value="#{cuentaController.selected.foto}" title="#{bundle.CreateCuentaTitle_foto}" />
+                        <p:fileUpload id="foto" value="#{cuentaController.file}" mode="simple" skinSimple="true"/>
                         <p:outputLabel value="#{bundle.CreateCuentaLabel_fechaTerminacion}" for="fechaTerminacion" />
                         <p:calendar id="fechaTerminacion" pattern="MM/dd/yyyy" value="#{cuentaController.selected.fechaTerminacion}" title="#{bundle.EditCuentaTitle_fechaTerminacion}"  showOn="button"/>
                         <p:outputLabel value="#{bundle.CreateCuentaLabel_estado}" for="estado" />

@@ -15,8 +15,8 @@
     </h:head>
 
     <h:body>
-
-        <p:growl id="growl" life="30000" />
+        
+        <p:growl id="growl" life="3000" />
         <div id="top">
             <ui:insert name="top">Top</ui:insert>
         </div>
@@ -34,6 +34,7 @@
            -->
             </div>
             <div id="content" class="left_content">
+                <p:messages id="mensajes" closable="true"/>
                 <ui:insert name="body">Content</ui:insert>
             </div>
         </div>

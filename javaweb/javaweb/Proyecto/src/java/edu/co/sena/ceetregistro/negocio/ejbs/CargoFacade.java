@@ -6,6 +6,7 @@
 package edu.co.sena.ceetregistro.negocio.ejbs;
 
 import edu.co.sena.ceetregistro.integracion.entitites.Cargo;
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -30,6 +31,13 @@ public class CargoFacade extends AbstractFacade<Cargo> {
                 .setParameter("cargoNuevo", nuevo)
                 .setParameter("cargoViejo", viejo)
                 .executeUpdate()
+                ;
+        
+    }
+    public List<Cargo> findByLikeIdCargo(String idcargo){
+        return getEntityManager().createNamedQuery("Cargo.findByLikeIdCargo")
+                .setParameter("idCargo", idcargo)
+                .getResultList()
                 ;
         
     }

@@ -27,7 +27,9 @@ public class CargoController implements Serializable {
     private edu.co.sena.ceetregistro.negocio.ejbs.CargoFacade ejbFacade;
     private List<Cargo> items = null;
     private Cargo selected;
-    
+
+    private String idCargoBuscar;
+
     private String nuevoCargo;
 
     public CargoController() {
@@ -67,12 +69,15 @@ public class CargoController implements Serializable {
     public void update() {
         persist(PersistAction.UPDATE, ResourceBundle.getBundle("/Bundle").getString("CargoUpdated"));
     }
-    public void updatepk() {
-        if (selected != null) {
+
+    public void searchIdCargo() {
+        if (idCargoBuscar != null) {
             try {
-                getFacade().updatepk(selected.getIdCargo(), nuevoCargo);
-                items = null;
-                
+                items = getFacade().findByLikeIdCargo(idCargoBuscar);
+
+                idCargoBuscar = null;
+                JsfUtil.addSuccessMessage(ResourceBundle.getBundle("/Bundle").getString("CargoUpdated"));
+
             } catch (EJBException ex) {
                 String msg = "";
                 Throwable cause = ex.getCause();
@@ -88,9 +93,41 @@ public class CargoController implements Serializable {
                 Logger.getLogger(this.getClass().getName()).log(Level.SEVERE, null, ex);
                 JsfUtil.addErrorMessage(ex, ResourceBundle.getBundle("/Bundle").getString("PersistenceErrorOccured"));
             }
-        
-        
-        }else{
+
+        } else {
+            JsfUtil.addErrorMessage(null, ResourceBundle.getBundle("/Bundle").getString("PersistenceErrorOccuredCargoPk"));
+        }
+    }
+
+    public void cleanSearch() {
+        items = null;
+    }
+
+    public void updatepk() {
+        if (selected != null) {
+            try {
+                getFacade().updatepk(selected.getIdCargo(), nuevoCargo);
+                items = null;
+                nuevoCargo = null;
+                JsfUtil.addSuccessMessage(ResourceBundle.getBundle("/Bundle").getString("CargoUpdated"));
+
+            } catch (EJBException ex) {
+                String msg = "";
+                Throwable cause = ex.getCause();
+                if (cause != null) {
+                    msg = cause.getLocalizedMessage();
+                }
+                if (msg.length() > 0) {
+                    JsfUtil.addErrorMessage(msg);
+                } else {
+                    JsfUtil.addErrorMessage(ex, ResourceBundle.getBundle("/Bundle").getString("PersistenceErrorOccured"));
+                }
+            } catch (Exception ex) {
+                Logger.getLogger(this.getClass().getName()).log(Level.SEVERE, null, ex);
+                JsfUtil.addErrorMessage(ex, ResourceBundle.getBundle("/Bundle").getString("PersistenceErrorOccured"));
+            }
+
+        } else {
             JsfUtil.addErrorMessage(null, ResourceBundle.getBundle("/Bundle").getString("PersistenceErrorOccuredCargoPk"));
         }
     }
@@ -156,6 +193,14 @@ public class CargoController implements Serializable {
 
     public void setNuevoCargo(String nuevoCargo) {
         this.nuevoCargo = nuevoCargo;
+    }
+
+    public String getIdCargoBuscar() {
+        return idCargoBuscar;
+    }
+
+    public void setIdCargoBuscar(String idCargoBuscar) {
+        this.idCargoBuscar = idCargoBuscar;
     }
 
     @FacesConverter(forClass = Cargo.class)

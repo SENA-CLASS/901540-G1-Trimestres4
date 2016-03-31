@@ -33,6 +33,7 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Cargo.findAll", query = "SELECT c FROM Cargo c"),
     @NamedQuery(name = "Cargo.updatepk", query = "UPDATE Cargo c SET c.idCargo = :cargoNuevo WHERE c.idCargo = :cargoViejo"),
     @NamedQuery(name = "Cargo.findByIdCargo", query = "SELECT c FROM Cargo c WHERE c.idCargo = :idCargo"),
+    @NamedQuery(name = "Cargo.findByLikeIdCargo", query = "SELECT c FROM Cargo c WHERE c.idCargo LIKE :idCargo"),
     @NamedQuery(name = "Cargo.findByDescripcionCargo", query = "SELECT c FROM Cargo c WHERE c.descripcionCargo = :descripcionCargo"),
     @NamedQuery(name = "Cargo.findByEstado", query = "SELECT c FROM Cargo c WHERE c.estado = :estado")})
 public class Cargo implements Serializable {

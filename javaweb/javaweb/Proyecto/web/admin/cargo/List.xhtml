@@ -53,6 +53,8 @@
                             <p:commandButton id="editButton"   icon="ui-icon-pencil" value="#{bundle.Edit}" update=":CargoEditForm" oncomplete="PF('CargoEditDialog').show()" disabled="#{empty cargoController.selected}"/>
                             <p:commandButton id="editButtonPK"   icon="ui-icon-pencil" value="#{bundle.EditCargo}" update=":CargoEditPKForm" oncomplete="PF('CargoEditPKDialog').show()" disabled="#{empty cargoController.selected}"/>
                             <p:commandButton id="deleteButton" icon="ui-icon-trash"  value="#{bundle.Delete}" actionListener="#{cargoController.destroy}" update=":growl,datalist" disabled="#{empty cargoController.selected}"/>
+                            <p:commandButton id="search" icon="ui-icon-search"  value="#{bundle.Busqueda}" update=":CargoSearchForm" oncomplete="PF('CargoSearchDialog').show()" />
+                            <p:commandButton id="cleansearch" icon="ui-icon-search"  value="#{bundle.ClearSearch}" actionListener="#{cargoController.cleanSearch}" update=":growl,datalist" />
                         </f:facet>
                     </p:dataTable>
                 </p:panel>
@@ -62,6 +64,7 @@
             <ui:include src="Edit.xhtml"/>
             <ui:include src="Editpk.xhtml"/>
             <ui:include src="View.xhtml"/>
+            <ui:include src="Search.xhtml"/>
         </ui:define>
     </ui:composition>
 
