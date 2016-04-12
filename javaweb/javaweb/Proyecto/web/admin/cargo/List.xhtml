@@ -14,8 +14,8 @@
         </ui:define>
 
         <ui:define name="body">
-            <h:form id="CargoListForm">
-                <p:panel header="#{bundle.ListCargoTitle}">
+            <h:form id="CargoListForm" >
+                <p:panel header="#{bundle.ListCargoTitle}" >
                     <p:dataTable id="datalist" value="#{cargoController.items}" var="item"
                                  selectionMode="single" selection="#{cargoController.selected}"
                                  paginator="true"

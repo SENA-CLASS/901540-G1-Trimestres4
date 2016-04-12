@@ -47,7 +47,7 @@
                                            itemValue="#{usuarioItem}"/>
                         </p:selectOneMenu>
                     </p:panelGrid>
-                    <p:commandButton actionListener="#{cuentaController.create}" value="#{bundle.Save}" update="display,:CuentaListForm:datalist,:growl" oncomplete="handleSubmit(args,'CuentaCreateDialog');"/>
+                    <p:commandButton ajax="false" actionListener="#{cuentaController.create}" value="#{bundle.Save}" update="display,:CuentaListForm:datalist,:growl" oncomplete="handleSubmit(args,'CuentaCreateDialog');"/>
                     <p:commandButton value="#{bundle.Cancel}" onclick="CuentaCreateDialog.hide()"/>
                 </h:panelGroup>
             </h:form>
